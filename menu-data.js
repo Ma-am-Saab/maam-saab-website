@@ -56,7 +56,7 @@ window.MS_MENU = {
       { name: "Seasonal Vegetables", desc: "Chef's seasonal preparation", price: "12", tags: [] },
       { name: "Lahori Cholay", desc: "Slow-simmered chickpeas with bold Lahori spice", price: "12", tags: [] },
     ]},
-    { section: "Housemade Chutneys", note: "Each 6 · Choose Three 15 · Full Sampler 24", items: [
+    { section: "Housemade Chutneys & Kachoomar", note: "Each 6 · Choose Three 15 · Full Sampler 24", items: [
       { name: "Mint Raita", desc: "Cool yogurt, mint, and mild spice" },
       { name: "Onion Kachoomar", desc: "Onion, tomato, cucumber, and chili" },
       { name: "Mint & Cilantro", desc: "Bright, herby, and fresh" },

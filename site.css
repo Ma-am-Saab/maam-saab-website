@@ -189,6 +189,8 @@ section{position:relative}
 .cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--gold)}
 .cform textarea{min-height:128px;resize:vertical}
 .cform select{appearance:none;-webkit-appearance:none;cursor:pointer}
+.cform input[type=file]{padding:11px 13px;cursor:pointer}
+.cform input[type=file]::file-selector-button{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:0;padding:8px 14px;margin-right:14px;border-radius:2px;cursor:pointer}
 .cform .ok{display:none;grid-column:1/-1;font-family:"Space Mono",monospace;font-size:13px;color:var(--gold);letter-spacing:.04em}
 .cform.sent .ok{display:block}
 @media(max-width:680px){.cform{grid-template-columns:1fr}}
