@@ -141,7 +141,7 @@
     <div id="message" style="max-width:880px;margin:0 auto">
       <p class="eyebrow reveal" style="color:var(--gold);margin-bottom:14px">Send a message</p>
       <h2 class="hmed reveal d1" style="color:var(--cream);margin-bottom:28px">Drop us a line</h2>
-      <form class="cform reveal d2" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return msSubmit(event,'contactForm')">
+      <form class="cform reveal d2" id="contactForm" name="contact" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return msSubmit(event,'contactForm')">
         <input type="hidden" name="form-name" value="contact"/>
         <input type="hidden" name="subject"/>
         <p hidden><label>Leave blank<input name="bot-field"/></label></p>
