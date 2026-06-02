@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Menu · Ma'am Saab · Modern Pakistani, Charleston SC</title>
+<meta name="description" content="The Ma'am Saab menu, adventurous Pakistani food and cocktails in Charleston, SC. Nihari, biryani, karahi, kababs, chaat, lassis and a bar with a wink." />
+<meta name="theme-color" content="#0C3D2B" />
+<meta property="og:title" content="Ma'am Saab, Menu" />
+<meta property="og:description" content="Modern Pakistani food & drink in Charleston, SC." />
+<meta property="og:image" content="assets/photos/nihari-graded.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,600;0,800;0,900;1,600;1,900&family=Space+Mono:wght@400;700&family=Noto+Kufi+Arabic:wght@500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="riso.css" />
+<link rel="stylesheet" href="patterns.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* ---- menu head ---- */
+  .menuhead{padding:clamp(116px,15vw,172px) 0 clamp(40px,6vw,72px);position:relative;overflow:hidden;text-align:center}
+  .menuhead h1{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:75%;text-transform:uppercase;
+    font-size:clamp(64px,12vw,150px);line-height:.84;letter-spacing:-.02em;color:var(--cream)}
+  /* transparent CTA toggle below headline */
+  .mtoggle{display:inline-flex;gap:10px;margin-top:30px}
+  .mtoggle a{font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:.22em;font-size:13px;font-weight:700;
+    padding:13px 30px;border:1.5px solid var(--gold);color:var(--ink);background:var(--gold);
+    transition:filter .3s}
+  .mtoggle a:hover{filter:brightness(1.08)}
+
+  /* ---- sticky slim jump bar ---- */
+  .jump{position:sticky;top:0;z-index:40;display:flex;justify-content:center;gap:30px;padding:14px 0;
+    background:color-mix(in srgb,var(--pine) 90%,transparent);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(236,229,212,.12)}
+  .jump a{font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--cream);opacity:.6;position:relative;padding:4px 0}
+  .jump a.active{opacity:1;color:var(--gold)}
+  .jump a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--gold);transition:width .3s}
+  .jump a.active::after{width:100%}
+
+  /* ---- sections ---- */
+  .msec{padding:clamp(54px,8vw,110px) 0;position:relative;overflow:hidden}
+  .msec-h{text-align:center;margin-bottom:clamp(40px,6vw,80px)}
+  .msec-h h2{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:clamp(44px,8vw,104px);line-height:.86;color:var(--cream)}
+
+  /* ---- group ---- */
+  .mgroup{margin-bottom:clamp(46px,6vw,80px);position:relative}
+  .mgroup:last-of-type{margin-bottom:0}
+  .mgroup-h{text-align:left;border-bottom:2px solid currentColor;padding-bottom:18px;margin-bottom:30px}
+  .mgroup-h .gt{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:80%;text-transform:uppercase;font-size:clamp(24px,3.4vw,40px);line-height:.95;letter-spacing:-.01em}
+  .mgroup-h .gs{font-family:"Space Mono",monospace;font-size:12.5px;letter-spacing:.04em;opacity:.66;max-width:none;margin:11px 0 0;line-height:1.6}
+  .mgroup-note{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-align:left;margin:-16px 0 26px}
+
+  .mitems{display:grid;grid-template-columns:1fr 1fr;gap:26px 56px}
+  .mitem{min-width:0}
+  .mitem .top{display:flex;align-items:baseline;gap:10px}
+  .mitem .nm{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:88%;text-transform:uppercase;font-size:16.5px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto}
+  .mitem .lead{flex:1 1 auto;border-bottom:1.5px dotted currentColor;opacity:.32;transform:translateY(-4px);min-width:14px}
+  .mitem .pr{font-family:"Anton",sans-serif;font-size:19px;color:var(--gold);flex:0 0 auto;letter-spacing:.03em}
+  .mitem .ds{font-family:"Space Mono",monospace;font-size:13px;opacity:.8;margin-top:7px;line-height:1.62}
+  .mitem .sub{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.04em;font-style:italic;opacity:.58;margin-top:5px}
+  .mitem .choose{margin-top:11px;display:flex;flex-wrap:wrap;gap:7px 9px}
+  .mitem .choose .ch{font-family:"Space Mono",monospace;font-weight:700;font-size:11px;letter-spacing:.04em;color:var(--gold);background:color-mix(in srgb,var(--gold) 14%,transparent);padding:5px 12px;border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);border-radius:20px}
+  .mitem .note{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--flag);margin-top:7px;font-weight:700}
+  .tag{display:inline-block;font-family:"Space Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;margin:8px 5px 0 0;border:1px solid currentColor;opacity:.55}
+
+  /* ---- tasting callout ---- */
+  .tasting-card{position:relative;overflow:hidden;padding:clamp(48px,8vw,104px) clamp(24px,5vw,60px);text-align:center;margin-bottom:clamp(50px,7vw,84px)}
+  .tasting-card .tnote{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;opacity:.72;margin-top:4px}
+  .callout-strip{border:1.5px solid rgba(244,181,58,.4);padding:22px 26px;text-align:center;margin-bottom:clamp(46px,6vw,72px)}
+  /* star-ornament divider */
+  .mdiv{display:flex;align-items:center;justify-content:center;gap:18px;padding:6px 0}
+  .mdiv .ln{height:1.5px;width:min(34vw,420px);background:linear-gradient(90deg,transparent,var(--gold))}
+  .mdiv .ln.r{background:linear-gradient(90deg,var(--gold),transparent)}
+  .mdiv .st{width:18px;height:18px;flex:0 0 auto;background:var(--gold);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
+
+  @media(max-width:780px){
+    .mitems{grid-template-columns:1fr;gap:22px}
+    .mitem .nm{white-space:normal}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrapw nav-inner">
+    <a href="/" aria-label="Ma'am Saab home"><img class="logo" src="assets/wm__cream.png" alt="Ma'am Saab" /></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/our-story">Our Story</a>
+      <a href="/menu">Menus</a>
+      <a href="/catering">Catering</a>
+      <a href="/jobs">Jobs</a>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-ghost" href="https://order.toasttab.com/online/ma-am-saab-251-meeting-street" target="_blank" rel="noopener" style="color:var(--cream)">Order Online</a>
+      <a class="btn btn-gold" href="https://www.opentable.com/r/maam-saab-reservations-charleston?restref=1202641&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener">Reserve</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mm-eyebrow">Ma'am Saab · Charleston</span>
+  <a href="/our-story">Our Story</a>
+  <a href="/menu">Menus</a>
+  <a href="/catering">Catering</a>
+  <a href="/jobs">Jobs</a>
+  <a href="/contact">Contact</a>
+  <a class="mm-cta" href="https://order.toasttab.com/online/ma-am-saab-251-meeting-street" target="_blank" rel="noopener">Order Online</a>
+  <a class="mm-cta" href="https://www.opentable.com/r/maam-saab-reservations-charleston?restref=1202641&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener">Reserve</a>
+  <span class="mm-foot">Open 7 nights<br/>Sun&ndash;Thu 5&ndash;9 PM · Fri&ndash;Sat 5&ndash;10 PM<br/>251 Meeting St, Charleston</span>
+</div>
+
+<!-- HEAD, toned dining-room photo -->
+<section class="menuhead" style="background:#1a0616">
+  <div class="frame" style="position:absolute;inset:0;z-index:0;background:#120314"><img src="assets/photos/spices-duo.jpg" alt="" style="object-position:center"/><div class="gr"></div></div>
+  <div style="position: absolute; inset: 0; z-index: 1; background: radial-gradient(120% 100% at 50% 38%, rgba(18, 3, 20, 0.34), rgba(18, 3, 20, 0.74)) center bottom"></div>
+  <div class="secpat pat-jali" style="opacity:.06;background-size:160px 160px;z-index:2"></div>
+  <div class="wrapw" style="position:relative;z-index:3">
+    <p class="eyebrow" style="color:var(--gold);margin-bottom:20px">Modern Pakistani · Southern Charm</p>
+    <h1>The Menu</h1>
+    <div class="mtoggle">
+      <a href="#tasting">Tasting Experience</a>
+      <a href="#food" data-jump="food" class="active">Food</a>
+      <a href="#drinks" data-jump="drinks">Drinks</a>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- TASTING -->
+  <section class="msec" id="tasting" style="position:relative;overflow:hidden;background:#15041a;color:var(--cream)">
+    <div class="frame" style="position:absolute;inset:0;z-index:0;background:#15041a"><img src="assets/photos/lib-birds-plum.jpg" alt="Birds over a Mughal mosque at golden hour" style="object-position:center 28%"/><div class="gr"></div></div>
+    <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(21,4,26,.82),rgba(21,4,26,.7) 50%,rgba(21,4,26,.9))"></div>
+    <div class="secpat pat-khatam" style="opacity:.05;background-size:150px 150px;z-index:2"></div>
+    <div class="wrapw" style="position:relative;z-index:3">
+      <div id="tastingCard"></div>
+    </div>
+  </section>
+
+  <div class="mdiv" style="background:#150a02"><span class="ln"></span><span class="st"></span><span class="ln r"></span></div>
+
+  <!-- FOOD -->
+  <section class="msec" id="food" style="position:relative;overflow:hidden;background:#1a0d04;color:var(--cream)">
+    <div class="frame" style="position:absolute;inset:0;z-index:0;background:#1a0d04"><img src="assets/photos/lib-bazaar-orange.jpg" alt="" style="object-position:center"/><div class="gr"></div></div>
+    <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(26,13,4,.82),rgba(26,13,4,.92))"></div>
+    <div class="secpat pat-halftone" style="opacity:.05;color:var(--gold);background-size:18px 18px;z-index:2"></div>
+    <div class="wrapw" style="position:relative;z-index:2">
+      <div class="msec-h"><p class="eyebrow" style="color:var(--gold);margin-bottom:14px">From the kitchen</p><h2>The Food</h2></div>
+      <div id="foodMenu"></div>
+      <p class="mono" id="foodNote" style="font-size:11px;opacity:.5;margin-top:44px;letter-spacing:.06em;line-height:1.7;max-width:80ch"></p>
+    </div>
+  </section>
+
+  <div class="mdiv" style="background:#150a02"><span class="ln"></span><span class="st"></span><span class="ln r"></span></div>
+
+  <!-- DRINKS -->
+  <section class="msec" id="drinks" style="position:relative;overflow:hidden;background:#2a0a04;color:var(--cream)">
+    <div class="frame" style="position:absolute;inset:0;z-index:0;background:#2a0a04"><img src="assets/photos/lib-bazaar-orange.jpg" alt="" style="object-position:center;transform:scaleY(-1)"/><div class="gr"></div></div>
+    <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(74,18,8,.72),rgba(42,10,4,.85))"></div>
+    <div class="secpat pat-halftone" style="opacity:.06;color:var(--gold);background-size:18px 18px;z-index:2"></div>
+    <div class="wrapw" style="position:relative;z-index:2">
+      <div class="msec-h"><p class="eyebrow" style="color:var(--gold);margin-bottom:14px">From the bar</p><h2>The Drinks</h2></div>
+      <div id="drinksCallout"></div>
+      <div id="drinkMenu"></div>
+      <p class="mono" id="drinksNote" style="font-size:11px;opacity:.5;margin-top:44px;letter-spacing:.06em;line-height:1.7;max-width:80ch"></p>
+    </div>
+  </section>
+</main>
+
+<!-- CLOSER -->
+<section class="sec" style="position:relative;overflow:hidden;background:#0a0402;min-height:66svh;display:flex;align-items:center;text-align:center">
+  <div class="frame" style="position:absolute;inset:0;z-index:0;background:#0a0402"><img src="assets/photos/charcoal.jpg" alt="Glowing charcoal embers" style="object-position:center"/></div>
+  <div style="position:absolute;inset:0;z-index:1;background:radial-gradient(120% 100% at 50% 50%,rgba(10,4,2,.4),rgba(10,4,2,.78))"></div>
+  <div class="secpat pat-khatam" style="opacity:.05;background-size:150px 150px;z-index:2"></div>
+  <div class="wrapw" style="position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:18px;padding-top:40px">
+    <p class="eyebrow" style="color:var(--gold)">Come hungry, leave a little in love</p>
+    <h2 class="hbig" style="color:var(--cream)">Hungry<br/>yet?</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-gold" href="https://www.opentable.com/r/maam-saab-reservations-charleston?restref=1202641&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener">Book a Table</a>
+      <a class="btn btn-ghost" href="https://order.toasttab.com/online/ma-am-saab-251-meeting-street" target="_blank" rel="noopener" style="color:var(--cream)">Order Online</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="visit">
+  <div class="frame" style="position:absolute;inset:0;z-index:0;background:#072018"><img src="assets/photos/islamabad-emerald.jpg" alt="" style="object-position:center 18%;opacity:.95"/></div>
+  <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,32,24,.42),rgba(7,32,24,.66))"></div>
+  <div class="secpat tex-plaster on-dark" style="z-index:2"></div>
+  <div class="secpat pat-jali" style="opacity:.06;background-size:150px 150px;z-index:2"></div>
+  <div class="wrapw" style="position:relative;z-index:3;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px">
+    <div>
+      <img src="assets/wm__cream.png" alt="Ma'am Saab" style="width:180px;display:block;margin:0 0 0 -22px" />
+      <p class="mono" style="font-size:12px;opacity:.7;margin-top:18px;letter-spacing:.1em">MODERN PAKISTANI · SOUTHERN CHARM</p>
+    </div>
+    <div class="mono" style="font-size:13px;line-height:2.1">
+      <a href="/our-story">Our Story</a><br/>
+      <a href="/menu">Menus</a><br/>
+      <a href="/catering">Catering</a><br/>
+      <a href="/jobs">Jobs</a><br/>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="mono" style="font-size:13px;line-height:2">
+      <span style="color:var(--gold);letter-spacing:.12em">HOURS</span><br/>
+      Open 7 nights<br/>
+      Sun–Thu · 5–9 PM<br/>
+      Fri–Sat · 5–10 PM
+    </div>
+    <div class="mono" style="font-size:13px;line-height:2" id="reserve">
+      <span style="color:var(--gold);letter-spacing:.12em">VISIT</span><br/>
+      251 Meeting St<br/>Charleston, SC 29401<br/>843.259.2660<br/>
+      <a href="https://instagram.com/maamsaabchs">@maamsaabchs</a>
+    </div>
+  </div>
+  <div class="wrapw" style="position:relative;z-index:3;margin-top:44px;padding-top:22px;border-top:1px solid rgba(236,229,212,.14);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+    <span class="mono" style="font-size:11px;opacity:.6">© 2020–2026 Ma'am Saab · Charleston, SC</span>
+    <span class="mono" style="font-size:11px;opacity:.6">Built with love &amp; chili</span>
+  </div>
+</footer>
+
+<div class="mcta">
+  <a href="https://www.opentable.com/r/maam-saab-reservations-charleston?restref=1202641&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener" style="background:var(--gold);color:var(--ink)">Reserve</a>
+  <a href="https://order.toasttab.com/online/ma-am-saab-251-meeting-street" target="_blank" rel="noopener" style="background:var(--ink);color:var(--cream)">Order Online</a>
+</div>
+
+<script src="menu-data.js"></script>
+<script>
+(function(){
+  const M = window.MS_MENU||{food:[],drinks:[]};
+  const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+  function itemHTML(it){
+    const tags = (it.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+    const sub = it.sub ? `<div class="sub">${esc(it.sub)}</div>` : '';
+    const choose = (it.choose&&it.choose.length) ? `<div class="choose">${it.choose.map(c=>`<span class="ch">${esc(c)}</span>`).join('')}</div>` : '';
+    const note = it.note ? `<div class="note">${esc(it.note)}</div>` : '';
+    const price = it.price ? `<span class="pr">${esc(it.price)}</span>` : '';
+    const ds = it.desc ? `<div class="ds">${esc(it.desc)}</div>` : '';
+    return `<div class="mitem">
+      <div class="top"><span class="nm">${esc(it.name)}</span><span class="lead"></span>${price}</div>
+      ${ds}${sub}${choose}${note}${tags?`<div>${tags}</div>`:''}
+    </div>`;
+  }
+  function groupHTML(g, i){
+    const sub = g.subtitle ? `<div class="gs">${esc(g.subtitle)}</div>` : '';
+    const note = g.note ? `<div class="mgroup-note">${esc(g.note)}</div>` : '';
+    return `<div class="mgroup">
+      <div class="mgroup-h"><div class="gt">${esc(g.section)}</div>${sub}</div>
+      ${note}<div class="mitems">${g.items.map(itemHTML).join('')}</div></div>`;
+  }
+
+  if(M.tasting){
+    const t=M.tasting;
+    document.getElementById('tastingCard').innerHTML = `
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
+        <p class="eyebrow" style="color:var(--gold)">Limited Seatings Available Each Night</p>
+        <h2 class="pword" style="color:var(--cream);font-family:'Archivo',sans-serif;font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:clamp(32px,5vw,68px);line-height:.86;letter-spacing:-.02em">THE <span style="color:var(--gold)">TASTING</span><br/>EXPERIENCE</h2>
+        <p class="lede" style="color:var(--cream);max-width:50ch;margin:0 auto">${esc(t.blurb)}</p>
+        <p style="font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(15px,1.6vw,19px);line-height:1.64;color:var(--cream);max-width:54ch;margin:8px auto 0;opacity:.92">A guided meal in three movements. We open with chaats and street snacks, the bright, crunchy way every great meal begins in the subcontinent. From there, a spread of housemade chutneys alongside grilled kababs and tikka. We finish where home cooking lives: a rich, slow-simmered curry course, with accompaniments to chase every last bit of flavor.</p>
+        <p style="font-family:'Anton',sans-serif;font-size:clamp(30px,4vw,46px);color:var(--gold);margin-top:14px">${esc(t.price)} <span style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.1em">pp</span></p>
+        <p class="mono" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);opacity:.78;max-width:46ch">Minimum two guests · entire table participation required</p>
+        <a class="btn btn-gold" href="https://www.opentable.com/booking/experiences-availability?rid=1202641&restref=1202641&experienceId=613005&utm_source=external&utm_medium=referral&utm_campaign=shared" target="_blank" rel="noopener" style="margin-top:6px">Reserve the Experience</a>
+      </div>`;
+  }
+
+  document.getElementById('foodMenu').innerHTML = (M.food||[]).map((g,i)=>groupHTML(g,i)).join('');
+  if(M.foodNote) document.getElementById('foodNote').textContent = M.foodNote;
+
+  if(M.drinksCallout){
+    document.getElementById('drinksCallout').innerHTML = `
+      <div class="callout-strip">
+        <p style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:85%;text-transform:uppercase;font-size:clamp(16px,2vw,22px);color:var(--gold)">${esc(M.drinksCallout.title)}</p>
+        <p class="mono" style="font-size:12px;opacity:.75;margin-top:6px;letter-spacing:.04em">${esc(M.drinksCallout.blurb)}</p>
+      </div>`;
+  }
+  document.getElementById('drinkMenu').innerHTML = (M.drinks||[]).map((g,i)=>groupHTML(g,i)).join('');
+  if(M.drinksNote) document.getElementById('drinksNote').textContent = M.drinksNote;
+
+  const allJump=[...document.querySelectorAll('[data-jump]')];
+  function setActive(id){allJump.forEach(a=>a.classList.toggle('active',a.getAttribute('data-jump')===id));}
+  const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id);});},{rootMargin:"-30% 0px -60% 0px"});
+  ['food','drinks'].forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el);});
+
+  const tog=document.getElementById('navToggle'),mm=document.getElementById('mobileMenu');
+  tog&&tog.addEventListener('click',()=>{const o=mm.classList.toggle('open');tog.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+  mm&&mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');tog&&tog.classList.remove('open');document.body.style.overflow='';}));
+
+  // nav transparent at top, opaque on scroll (consistent with other pages)
+  const navEl=document.getElementById('nav');
+  const onScroll=()=>{if(window.scrollY>40)navEl.classList.add('scrolled');else navEl.classList.remove('scrolled');};
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>
+
+<style id="__om-edit-overrides">
+#foodMenu >div:nth-child(1) .gs { font-size: 14px !important }
+#foodMenu >div:nth-child(1) .gs { width: 500px !important }
+#foodMenu >div:nth-child(1) .gs { width: 501px !important }
+#foodMenu >div:nth-child(1) .gs { width: 517px !important }
+#foodMenu >div:nth-child(1) .gs { width: 800px !important }
+#foodMenu .mitem >.note { font-size: 13px !important }
+</style>

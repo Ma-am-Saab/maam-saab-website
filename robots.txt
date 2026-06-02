@@ -1,0 +1,4 @@
+# STAGING — block all crawlers until launch.
+# At go-live, replace this file's contents with robots-production.txt
+User-agent: *
+Disallow: /

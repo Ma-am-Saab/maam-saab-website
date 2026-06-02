@@ -1,0 +1,55 @@
+/* ============================================================
+   MA'AM SAAB — PATTERN & TEXTURE LIBRARY
+   Drop-in classes for web. Geometric motifs (jali, khatam,
+   scallop) ship as seamless PNG tiles in assets/patterns/.
+   Gradient motifs (chevron, halftone, ticking, trellis) are
+   pure CSS and recolour via `color:` (currentColor).
+   ============================================================ */
+
+/* ---- raster motif tiles (motif on transparent; set your own bg) ---- */
+.pat-jali,.pat-khatam,.pat-scallop,.pat-brick,.pat-arch,.pat-kashi,.pat-zellige{background-repeat:repeat;background-position:center}
+.pat-jali{background-image:url(assets/patterns/jali-cream.png);background-size:168px 168px}
+.pat-khatam{background-image:url(assets/patterns/khatam-cream.png);background-size:150px 150px}
+.pat-scallop{background-image:url(assets/patterns/scallop-cream.png);background-size:200px 100px}
+.pat-brick{background-image:url(assets/patterns/brick-cream.png);background-size:240px 240px}
+.pat-arch{background-image:url(assets/patterns/ogee2-cream.png);background-size:200px 200px}
+.pat-kashi{background-image:url(assets/patterns/kashi-cream.png);background-size:200px 200px}
+.pat-zellige{background-image:url(assets/patterns/zellige-cream.png);background-size:170px 170px}
+.pat-jali.em{background-image:url(assets/patterns/jali-emerald.png)}
+.pat-khatam.em{background-image:url(assets/patterns/khatam-emerald.png)}
+.pat-scallop.em{background-image:url(assets/patterns/scallop-emerald.png)}
+.pat-brick.em{background-image:url(assets/patterns/brick-emerald.png)}
+.pat-arch.em{background-image:url(assets/patterns/ogee2-emerald.png)}
+.pat-kashi.em{background-image:url(assets/patterns/kashi-emerald.png)}
+.pat-zellige.em{background-image:url(assets/patterns/zellige-emerald.png)}
+
+/* ---- pure-CSS motifs — recolour with `color:` ---- */
+.pat-halftone{background-image:radial-gradient(currentColor 22%,transparent 24%);background-size:22px 22px}
+.pat-ticking{background-image:repeating-linear-gradient(90deg,currentColor 0 2px,transparent 2px 20px)}
+.pat-trellis{background-image:
+  repeating-linear-gradient(45deg,currentColor 0 2px,transparent 2px 28px),
+  repeating-linear-gradient(-45deg,currentColor 0 2px,transparent 2px 28px)}
+.pat-chevron{background-color:transparent;background-image:
+  linear-gradient(135deg,currentColor 25%,transparent 25%),
+  linear-gradient(225deg,currentColor 25%,transparent 25%),
+  linear-gradient(315deg,currentColor 25%,transparent 25%),
+  linear-gradient(45deg,currentColor 25%,transparent 25%);
+  background-position:-21px 0,-21px 0,0 0,0 0;background-size:42px 42px}
+
+/* ---- tonal textures (grayscale grain; keep the hue beneath) ----
+   Apply to any element; the ::before blends over its background-color.
+   Use .on-dark over near-black grounds, .on-light over pale grounds.   */
+.tex-plaster,.tex-stucco,.tex-inkwash,.tex-fiber,.tex-newsprint{position:relative}
+.tex-plaster::before,.tex-stucco::before,.tex-inkwash::before,.tex-fiber::before,.tex-newsprint::before{
+  content:"";position:absolute;inset:0;pointer-events:none;background-position:center;background-size:cover;
+  mix-blend-mode:overlay;opacity:.85}
+.tex-plaster::before{background-image:url(assets/tex/plaster.jpg)}
+.tex-stucco::before{background-image:url(assets/tex/stucco.jpg)}
+.tex-inkwash::before{background-image:url(assets/tex/inkwash.jpg)}
+.tex-fiber::before{background-image:url(assets/tex/fiber.jpg)}
+.tex-newsprint::before{background-image:url(assets/tex/newsprint.jpg)}
+.on-dark::before{mix-blend-mode:screen;opacity:.2}
+.on-light::before{mix-blend-mode:multiply;opacity:.24}
+
+/* pattern as an overlay layer (motif sits ON TOP of a textured ground) */
+.pat-layer{position:absolute;inset:0;pointer-events:none;z-index:2}
