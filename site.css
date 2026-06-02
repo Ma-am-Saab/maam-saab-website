@@ -240,3 +240,12 @@ section{position:relative}
 @media(max-width:680px){
   .footer > div[style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:28px!important;text-align:left}
 }
+
+
+/* ---- animated form thank-you ---- */
+.form-thanks{display:none;text-align:center;padding:clamp(28px,5vw,52px) 0}
+.form-thanks.show{display:block;animation:ftin .85s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ftin{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.form-thanks .ft-ur{font-family:"Noto Kufi Arabic",sans-serif;font-weight:900;font-size:clamp(44px,8vw,82px);line-height:1;margin-bottom:16px;background:url(assets/tex/stucco.jpg) center/cover,var(--gold);background-blend-mode:multiply;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:ftin 1s .12s cubic-bezier(.2,.8,.2,1) both}
+.form-thanks .ft-en{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:clamp(30px,5vw,52px);color:var(--cream);line-height:.9;margin-bottom:16px;animation:ftin 1s .22s cubic-bezier(.2,.8,.2,1) both}
+.form-thanks p{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.04em;line-height:1.7;color:var(--cream);opacity:.82;max-width:46ch;margin:0 auto;animation:ftin 1s .32s cubic-bezier(.2,.8,.2,1) both}

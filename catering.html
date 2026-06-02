@@ -165,6 +165,11 @@
           <div class="full"><button class="btn btn-gold" type="submit">Send Inquiry</button></div>
           <p class="ok">Thank you, your inquiry is in. We'll reply within 1–2 business days.</p>
         </form>
+      <div class="form-thanks" id="catFormThanks">
+        <div class="ft-ur">شکریہ</div>
+        <div class="ft-en">Thank you</div>
+        <p>Your inquiry is in. We will be in touch to start planning your daawat.</p>
+      </div>
       </div>
     </div>
   </div>
@@ -211,7 +216,7 @@
 
 <script src="site.js"></script>
 <script>
-function msSubmit(e,id){e.preventDefault();var f=document.getElementById(id);var nm=(f.querySelector('[name=name]')||{}).value||'someone';var sel=f.querySelector('select');var extra=sel?sel.value:'';var labels={'contact':'New message','jobs-application':'New application','catering-inquiry':'New catering inquiry'};var base=labels[f.getAttribute('name')]||'New submission';var subj=base+' from '+nm+(extra?(' · '+extra):'');var sf=f.querySelector('[name=subject]');if(sf)sf.value=subj;var body=new URLSearchParams(new FormData(f)).toString();fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(){f.classList.add('sent');f.querySelector('button').textContent='Sent ✓';}).catch(function(){f.classList.add('sent');f.querySelector('button').textContent='Sent ✓';});return false;}
+function msSubmit(e,id){e.preventDefault();var f=document.getElementById(id);var nm=(f.querySelector('[name=name]')||{}).value||'someone';var sel=f.querySelector('select');var extra=sel?sel.value:'';var labels={'contact':'New message','jobs-application':'New application','catering-inquiry':'New catering inquiry'};var base=labels[f.getAttribute('name')]||'New submission';var subj=base+' from '+nm+(extra?(' · '+extra):'');var sf=f.querySelector('[name=subject]');if(sf)sf.value=subj;var body=new URLSearchParams(new FormData(f)).toString();function done(){f.style.display='none';var t=document.getElementById(id+'Thanks');if(t){t.classList.add('show');t.scrollIntoView({behavior:'smooth',block:'center'});}}fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(done).catch(done);return false;}
 </script>
 </body>
 </html>
