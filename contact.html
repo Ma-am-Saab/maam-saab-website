@@ -21,6 +21,7 @@
   .resv-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px}
   .resv-sep{color:var(--gold);opacity:.45;font-family:"Space Mono",monospace;font-size:15px}
   @media(max-width:680px){.resv-row{flex-direction:column;align-items:flex-start;gap:12px}.resv-sep{display:none}}
+  @media(max-width:780px){.channels>div{padding-left:0 !important;padding-right:0 !important}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"Ma'am Saab","servesCuisine":["Pakistani","Indian"],
@@ -86,7 +87,7 @@
     </div>
 
     <!-- CHANNELS -->
-    <div style="margin:clamp(48px,7vw,88px) 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0">
+    <div class="channels" style="margin:clamp(48px,7vw,88px) 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0">
       <div class="reveal" style="border-top:2px solid var(--gold);padding:18px 20px 26px 0">
         <h3 class="hmed" style="font-size:clamp(18px,2.2vw,24px);color:var(--cream);margin-bottom:10px">Reservations</h3>
         <p class="mono" style="font-size:12.5px;line-height:1.65;color:var(--cream);opacity:.82">Book online anytime, or call us during service.</p>
@@ -188,8 +189,8 @@
 </footer>
 
 <div class="mcta">
-  <a href="#message" style="background:var(--gold);color:var(--ink)">Message</a>
-  <a href="https://www.opentable.com/r/maam-saab-reservations-charleston?restref=1202641&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener" style="background:var(--ink);color:var(--cream)">Reserve</a>
+  <a href="https://www.opentable.com/r/maam-saab-reservations-charleston?restref=1202641&lang=en-US&ot_source=Restaurant%20website" target="_blank" rel="noopener" style="background:var(--gold);color:var(--ink)">Reserve</a>
+  <a href="https://order.toasttab.com/online/ma-am-saab-251-meeting-street" target="_blank" rel="noopener" style="background:var(--ink);color:var(--cream)">Order Online</a>
 </div>
 
 <script src="site.js"></script>
