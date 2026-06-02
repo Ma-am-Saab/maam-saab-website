@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<!-- ============================================================
+  MA'AM SAAB — GUEST AUTO-RESPONDER  (white / black, sans-serif, dark-mode aware)
+  Paste FULL contents into Zapier email Body (HTML / Code mode).
+  Map {{name}} to the Netlify Name field. Logo loads from the live site.
+============================================================ -->
+<style>
+  @media (prefers-color-scheme: dark) {
+    .ms-bg   { background:#0e0e0e !important; }
+    .ms-card { background:#161616 !important; }
+    .ms-head { color:#ffffff !important; }
+    .ms-txt  { color:#e6e6e6 !important; }
+    .ms-muted{ color:#9a9a9a !important; }
+    .ms-urdu { color:#F4B53A !important; }
+    .ms-ey   { color:#F4B53A !important; }
+    .ms-acc  { color:#F4B53A !important; }
+    .ms-rule { border-color:#F4B53A !important; }
+    .ms-logo-light { display:none !important; }
+    .ms-logo-dark  { display:inline-block !important; width:190px !important; max-height:none !important; overflow:visible !important; }
+    .ms-btn-fill { background:#F4B53A !important; color:#14110E !important; }
+    .ms-btn-ghost{ color:#e6e6e6 !important; border-color:#666 !important; }
+    .ms-foot { color:#9a9a9a !important; }
+  }
+</style>
+</head>
+<body class="ms-bg" style="margin:0;padding:0;background:#f2f2ef;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0;padding:0;background:#f2f2ef;" class="ms-bg">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" class="ms-card" style="width:600px;max-width:600px;background:#ffffff;">
+
+        <!-- logo on emerald band (colour change is the divider) -->
+        <tr>
+          <td align="center" style="padding:40px 40px 38px 40px;background:#0C3D2B url('https://maamsaab20.netlify.app/assets/email-band.png') center/600px;">
+            <img src="https://maamsaab20.netlify.app/assets/wm__cream.png" width="500" alt="Ma'am Saab" style="display:inline-block;width:500px;max-width:94%;height:auto;border:0;">
+          </td>
+        </tr>
+
+        <!-- thank you -->
+        <tr>
+          <td align="center" style="padding:56px 32px 0 32px;">
+            <div class="ms-ey" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#0C3D2B;">Message received, loud and clear</div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding:18px 32px 4px 32px;">
+            <div class="ms-head" style="font-family:Helvetica,Arial,sans-serif;font-size:92px;line-height:.86;color:#1a1a1a;font-weight:bold;letter-spacing:-3px;text-transform:uppercase;">Thank<br><span class="ms-acc" style="color:#F4B53A;">you.</span></div>
+          </td>
+        </tr>
+
+        <!-- body -->
+        <tr>
+          <td align="center" style="padding:34px 56px 8px 56px;">
+            <p class="ms-txt" style="font-family:Helvetica,Arial,sans-serif;font-size:17px;line-height:1.7;color:#2a2a2a;margin:0;text-align:center;">Hi {{name}}, your note landed safely, and yes, a real human read it (we don't do robots). Someone from our team will be in touch within a day or two.</p>
+            <p class="ms-txt" style="font-family:Helvetica,Arial,sans-serif;font-size:17px;line-height:1.7;color:#2a2a2a;margin:18px 0 0 0;text-align:center;">Until then: come hungry, come curious, and save room. There's always a seat with your name on it.</p>
+          </td>
+        </tr>
+
+        <!-- buttons -->
+        <tr>
+          <td align="center" style="padding:50px 56px 54px 56px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:360px;margin:0 auto;">
+              <tr>
+                <td align="center" style="padding-bottom:14px;">
+                  <a href="https://www.opentable.com/r/maam-saab-reservations-charleston?restref=1202641&lang=en-US&ot_source=Restaurant%20website" class="ms-btn-fill" style="display:block;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#14110E;background:#F4B53A;padding:20px 26px;text-decoration:none;text-align:center;">Book a Table</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <a href="https://maamsaab20.netlify.app/menu.html" class="ms-btn-ghost" style="display:block;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#1a1a1a;background:transparent;border:1.5px solid #1a1a1a;padding:18px 26px;text-decoration:none;text-align:center;">See the Menu</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- footer (emerald band + jali, like the site) -->
+        <tr>
+          <td style="padding:34px 52px 38px 52px;background:#0C3D2B url('https://maamsaab20.netlify.app/assets/email-band.png') center/600px;">
+            <p class="ms-foot" style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:1.9;letter-spacing:1px;color:#ECE5D4;margin:0;text-transform:uppercase;text-align:center;">
+              <span style="color:#F4B53A;font-weight:bold;">Ma'am Saab &middot; Modern Pakistani &middot; Southern Charm</span><br>
+              251 Meeting St, Charleston, SC 29401 &middot; 843.259.2660<br>
+              <span style="font-weight:bold;">Open 7 nights &middot; Sun&ndash;Thu 5&ndash;9 PM &middot; Fri&ndash;Sat 5&ndash;10 PM</span>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
