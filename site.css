@@ -188,7 +188,9 @@ section{position:relative}
 .cform input::placeholder,.cform textarea::placeholder{color:inherit;opacity:.42}
 .cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--gold)}
 .cform textarea{min-height:128px;resize:vertical}
-.cform select{appearance:none;-webkit-appearance:none;cursor:pointer}
+.cform select{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23F4B53A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}
 .cform input[type=file]{padding:11px 13px;cursor:pointer}
 .cform input[type=file]::file-selector-button{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:0;padding:8px 14px;margin-right:14px;border-radius:2px;cursor:pointer}
 .cform .ok{display:none;grid-column:1/-1;font-family:"Space Mono",monospace;font-size:13px;color:var(--gold);letter-spacing:.04em}

@@ -157,7 +157,7 @@
         <p hidden><label>Leave blank<input name="bot-field"/></label></p>
           <div><label>Name</label><input name="name" placeholder="Your name" required /></div>
           <div><label>Email</label><input name="email" type="email" placeholder="you@email.com" required /></div>
-          <div><label>Phone</label><input name="phone" type="tel" placeholder="(843) 000-0000" /></div>
+          <div><label>Phone</label><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+1 (843) 555-0123" /></div>
           <div><label>Event Type</label><select name="type"><option>Restaurant Buyout</option><option>Private Party</option><option>Off-Site Catering</option><option>Wedding</option><option>Corporate</option><option>Other</option></select></div>
           <div><label>Date</label><input name="date" type="date" /></div>
           <div><label>Guest Count</label><input name="guests" type="number" min="1" placeholder="e.g. 30" /></div>
@@ -218,5 +218,33 @@
 <script>
 function msSubmit(e,id){e.preventDefault();var f=document.getElementById(id);var nm=(f.querySelector('[name=name]')||{}).value||'someone';var sel=f.querySelector('select');var extra=sel?sel.value:'';var labels={'contact':'New message','jobs-application':'New application','catering-inquiry':'New catering inquiry'};var base=labels[f.getAttribute('name')]||'New submission';var subj=base+' from '+nm+(extra?(' · '+extra):'');var sf=f.querySelector('[name=subject]');if(sf)sf.value=subj;var body=new URLSearchParams(new FormData(f)).toString();function done(){f.style.display='none';var t=document.getElementById(id+'Thanks');if(t){t.classList.add('show');t.scrollIntoView({behavior:'smooth',block:'center'});}}fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(done).catch(done);return false;}
 </script>
+<script>
+(function(){
+  var p=document.querySelector('input[name=phone]');
+  if(!p) return;
+  p.setAttribute('placeholder','+1 (843) 555-0123');
+  function fmt(){
+    var raw=p.value;
+    var hasPlus=raw.trim().charAt(0)==='+';
+    var allDigits=raw.replace(/\D/g,'');
+    if(hasPlus && !/^1/.test(allDigits)){ p.value='+'+allDigits; return; }
+    var d=allDigits;
+    if(d.charAt(0)==='1') d=d.slice(1);
+    d=d.slice(0,10);
+    var out='';
+    if(d.length>0) out='+1 ('+d.slice(0,3);
+    if(d.length>3) out+=') '+d.slice(3,6);
+    else if(d.length===3) out+=')';
+    if(d.length>6) out+='-'+d.slice(6,10);
+    p.value=out;
+  }
+  p.addEventListener('input',fmt);
+  p.addEventListener('blur',function(){
+    var d=p.value.replace(/\D/g,'');
+    p.setCustomValidity(p.value && d.length<7 ? 'Please enter a valid phone number' : '');
+  });
+})();
+</script>
+
 </body>
 </html>
