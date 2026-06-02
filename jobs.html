@@ -120,7 +120,9 @@
     <div id="apply" style="max-width:880px;margin:0 auto">
       <p class="eyebrow reveal" style="color:var(--gold);margin-bottom:14px">Apply</p>
       <h2 class="hmed reveal d1" style="color:var(--cream);margin-bottom:28px">Tell us about you</h2>
-      <form class="cform reveal d2" id="jobForm" onsubmit="return msSubmit(event,'jobForm')">
+      <form class="cform reveal d2" id="jobForm" name="jobs-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return msSubmit(event,'jobForm')">
+        <input type="hidden" name="form-name" value="jobs-application"/>
+        <p hidden><label>Leave blank<input name="bot-field"/></label></p>
         <div><label>Name</label><input name="name" placeholder="Your name" required /></div>
         <div><label>Email</label><input name="email" type="email" placeholder="you@email.com" required /></div>
         <div><label>Phone</label><input name="phone" type="tel" placeholder="(843) 000-0000" /></div>
@@ -194,7 +196,7 @@
       var o=document.createElement('option');o.innerHTML=r[0];sel.appendChild(o);
     });
   })();
-  function msSubmit(e,id){e.preventDefault();document.getElementById(id).classList.add('sent');document.getElementById(id).querySelector('button').textContent='Sent ✓';return false;}
+  function msSubmit(e,id){e.preventDefault();var f=document.getElementById(id);var body=new URLSearchParams(new FormData(f)).toString();fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(function(){f.classList.add('sent');f.querySelector('button').textContent='Sent ✓';}).catch(function(){f.classList.add('sent');f.querySelector('button').textContent='Sent ✓';});return false;}
 </script>
 </body>
 </html>
