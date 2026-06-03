@@ -22,7 +22,11 @@
 
   // ---- nav scrolled + active hero state ----
   const nav = document.getElementById('nav');
-  const onScroll = () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+  const mcta = document.querySelector('.mcta');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+    if (mcta) { if (window.scrollY > window.innerHeight * 0.7) mcta.classList.add('show'); else mcta.classList.remove('show'); }
+  };
   document.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // ---- mobile menu ----
