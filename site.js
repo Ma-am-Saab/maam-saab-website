@@ -66,7 +66,7 @@
     ["Who enjoys Ma'am Saab?", "Everyone, honestly. We're a family destination, a special-occasion spot, a date-night classic, and just as right for the solo diner who wants to buy themselves flowers. Adventurous eaters, spice-seekers, and the sober-curious all find their corner. Come as you are, leave a little in love."],
     ["Is it easy to get a reservation?", "Weekends book up fast, so plan ahead. Weeknights and the bar are friendlier to the spontaneous. The bar is first-come, first-served if you'd rather wing it."],
     ["Corkage, cakes & parking?", "Corkage is $30/bottle, no limit. Cake cutting is $4/guest. For parking, the garage on Wentworth Street is closest; there's also street parking on Meeting, Wentworth, Society and King, plus limited-time residential parking all around us."],
-    ["No-show policy", "Reservations hold a card; no-shows or cancellations under 24 hours are charged $25/guest. Rather than cancel, we'll happily move you to another day, a one-time change to avoid the fee. The rebooked reservation is then subject to the cancellation fee regardless of when you cancel."],
+    ["No-show policy", "Reservations hold a card. Parties of four or fewer may cancel up to 48 hours before their booking; parties of five or more require four days' notice. Cancellations or no-shows inside that window are charged $25 per guest. This is a strict policy."],
   ];
   const faqEl = document.getElementById('faq');
   if (faqEl) {
