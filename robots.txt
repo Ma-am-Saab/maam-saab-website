@@ -1,4 +1,18 @@
-# STAGING — block all crawlers until launch.
+# STAGING — block search crawlers until launch.
 # At go-live, replace this file's contents with robots-production.txt
+
+# Allow Claude to read the staging site (more specific groups win over *)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: *
 Disallow: /
