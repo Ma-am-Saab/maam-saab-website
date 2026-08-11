@@ -8,13 +8,25 @@
 <meta name="theme-color" content="#0C3D2B" />
 <meta property="og:title" content="Ma'am Saab, Menu" />
 <meta property="og:description" content="Modern Pakistani food & drink in Charleston, SC." />
-<meta property="og:image" content="assets/photos/nihari-graded.jpg" />
+<meta property="og:image" content="https://maamsaabchs.com/assets/photos/nihari-graded.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,600;0,800;0,900;1,600;1,900&family=Space+Mono:wght@400;700&family=Noto+Kufi+Arabic:wght@500;700;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="riso.css" />
 <link rel="stylesheet" href="patterns.css" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="site.css" />
+<style id="bodyFontVars">
+  :root{ --bodyfont:"Lora",serif; --bodyweight:400; --bodysize:16.5px; --bodylh:1.65; --bodytrack:0em; }
+  /* every paragraph / body-copy role on the site */
+  .lede,.mag > p:not(.eyebrow),.faq .ans,.rb-step p,.tl .td,.dc,.person > div > p:not(.eyebrow),.person > p:not(.eyebrow),p.body,.qa p{
+    font-family:var(--bodyfont);
+    font-weight:var(--bodyweight);
+    font-size:var(--bodysize);
+    letter-spacing:var(--bodytrack);
+    line-height:var(--bodylh);
+  }
+</style>
 <style>
   /* ---- menu head ---- */
   .menuhead{padding:clamp(116px,15vw,172px) 0 clamp(40px,6vw,72px);position:relative;overflow:hidden;text-align:center}
@@ -56,6 +68,7 @@
   .mitems{display:grid;grid-template-columns:1fr 1fr;gap:26px 56px}
   .mitem{min-width:0}
   .mitem .top{display:flex;align-items:baseline;gap:10px}
+  .mitem .nm .star{color:var(--flag);font-size:13px;vertical-align:1.5px;margin-left:5px;-webkit-text-fill-color:var(--flag)}
   .mitem .nm{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:88%;text-transform:uppercase;font-size:16.5px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 1 auto}
   .mitem .lead{flex:1 1 auto;border-bottom:1.5px dotted currentColor;opacity:.32;transform:translateY(-4px);min-width:14px}
   .mitem .pr{font-family:"Anton",sans-serif;font-size:19px;color:var(--gold);flex:0 0 auto;letter-spacing:.03em}
@@ -69,6 +82,8 @@
   /* ---- tasting callout ---- */
   .tasting-card{position:relative;overflow:hidden;padding:clamp(48px,8vw,104px) clamp(24px,5vw,60px);text-align:center;margin-bottom:clamp(50px,7vw,84px)}
   .tasting-card .tnote{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;opacity:.72;margin-top:4px}
+  .dtbr{display:none}
+  @media(min-width:781px){.dtbr{display:inline}}
   .callout-strip{border:1.5px solid rgba(244,181,58,.4);padding:22px 26px;text-align:center;margin-bottom:clamp(46px,6vw,72px)}
   /* star-ornament divider */
   .mdiv{display:flex;align-items:center;justify-content:center;gap:18px;padding:6px 0}
@@ -81,6 +96,7 @@
     .mitem .nm{white-space:normal}
   }
 </style>
+<link rel="canonical" href="https://maamsaabchs.com/menu" />
 </head>
 <body>
 
@@ -148,7 +164,7 @@
     <div class="wrapw" style="position:relative;z-index:2">
       <div class="msec-h"><p class="eyebrow" style="color:var(--gold);margin-bottom:14px">From the kitchen</p><h2>The Food</h2></div>
       <div id="foodMenu"></div>
-      <p class="mono" id="foodNote" style="font-size:11px;opacity:.5;margin-top:44px;letter-spacing:.06em;line-height:1.7;max-width:80ch"></p>
+      <p class="mono" id="foodNote" style="font-size:11px;opacity:.5;margin-top:44px;letter-spacing:.06em;line-height:1.7;width:80%;margin-left:auto;margin-right:auto;text-align:center;grid-column:1 / -1"></p>
     </div>
   </section>
 
@@ -163,7 +179,7 @@
       <div class="msec-h"><p class="eyebrow" style="color:var(--gold);margin-bottom:14px">From the bar</p><h2>The Drinks</h2></div>
       <div id="drinksCallout"></div>
       <div id="drinkMenu"></div>
-      <p class="mono" id="drinksNote" style="font-size:11px;opacity:.5;margin-top:44px;letter-spacing:.06em;line-height:1.7;max-width:80ch"></p>
+      <p class="mono" id="drinksNote" style="font-size:11px;opacity:.5;margin-top:44px;letter-spacing:.06em;line-height:1.7;width:80%;margin-left:auto;margin-right:auto;text-align:center;grid-column:1 / -1"></p>
     </div>
   </section>
 </main>
@@ -208,13 +224,13 @@
     </div>
     <div class="mono" style="font-size:13px;line-height:2" id="reserve">
       <span style="color:var(--gold);letter-spacing:.12em">VISIT</span><br/>
-      251 Meeting St<br/>Charleston, SC 29401<br/>843.259.2660<br/>
+      251 Meeting St<br/>Charleston, SC 29401<br/><a href="tel:+18432592660">843.259.2660</a><br/>
       <a href="https://instagram.com/maamsaabchs">@maamsaabchs</a>
     </div>
   </div>
   <div class="wrapw" style="position:relative;z-index:3;margin-top:44px;padding-top:22px;border-top:1px solid rgba(236,229,212,.14);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
     <span class="mono" style="font-size:11px;opacity:.6">© 2020–2026 Ma'am Saab · Charleston, SC</span>
-    <span class="mono" style="font-size:11px;opacity:.6">Built with love &amp; chili</span>
+    <span class="mono" style="font-size:11px;opacity:.6">Built with love &amp; Kashmiri chili</span>
   </div>
 </footer>
 
@@ -237,7 +253,7 @@
     const price = it.price ? `<span class="pr">${esc(it.price)}</span>` : '';
     const ds = it.desc ? `<div class="ds">${esc(it.desc)}</div>` : '';
     return `<div class="mitem">
-      <div class="top"><span class="nm">${esc(it.name)}</span><span class="lead"></span>${price}</div>
+      <div class="top"><span class="nm">${esc(it.name)}${it.star?'<span class="star">★</span>':''}</span><span class="lead"></span>${price}</div>
       ${ds}${sub}${choose}${note}${tags?`<div>${tags}</div>`:''}
     </div>`;
   }
@@ -255,10 +271,10 @@
       <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
         <p class="eyebrow" style="color:var(--gold)">Limited Seatings Available Each Night</p>
         <h2 class="pword" style="color:var(--cream);font-family:'Archivo',sans-serif;font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:clamp(32px,5vw,68px);line-height:.86;letter-spacing:-.02em">THE <span style="color:var(--gold)">TASTING</span><br/>EXPERIENCE</h2>
-        <p class="lede" style="color:var(--cream);max-width:50ch;margin:0 auto">${esc(t.blurb)}</p>
-        <p style="font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(15px,1.6vw,19px);line-height:1.64;color:var(--cream);max-width:54ch;margin:8px auto 0;opacity:.92">A guided meal in three movements. We open with chaats and street snacks, the bright, crunchy way every great meal begins in the subcontinent. From there, a spread of housemade chutneys alongside grilled kababs and tikka. We finish where home cooking lives: a rich, slow-simmered curry course, with accompaniments to chase every last bit of flavor.</p>
-        <p style="font-family:'Anton',sans-serif;font-size:clamp(30px,4vw,46px);color:var(--gold);margin-top:14px;line-height:1">${esc(t.price)}<span style="display:block;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.1em;margin-top:6px">per person</span></p>
-        <p class="mono" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);opacity:.78;max-width:46ch">Minimum two guests · entire table participation required</p>
+        <p class="lede" style="color:var(--cream);max-width:50ch;margin:0 auto">${esc(t.blurb).replace('through ','through<br class="dtbr"> ')}</p>
+        <p class="lede" style="color:var(--cream);max-width:54ch;margin:8px auto 0;opacity:.92">A guided meal in three movements. We open with chaats and street snacks, the bright, crunchy way every great meal begins in the subcontinent. From there, a spread of housemade chutneys alongside grilled kababs and tikka. We finish where home cooking lives: a rich, slow-simmered curry course, with accompaniments to chase every last bit of flavor.</p>
+        
+        <p class="mono" style="font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);opacity:.78;max-width:46ch;margin-top:16px"><span style="color:var(--gold);font-weight:400">${esc(t.price)} per person</span><br>Minimum two guests<br>entire table participation required</p>
         <a class="btn btn-gold" href="https://www.opentable.com/booking/experiences-availability?rid=1202641&restref=1202641&experienceId=613005&utm_source=external&utm_medium=referral&utm_campaign=shared" target="_blank" rel="noopener" style="margin-top:6px">Reserve the Experience</a>
       </div>`;
   }

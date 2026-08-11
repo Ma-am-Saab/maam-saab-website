@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ma'am Saab — Print Drinks Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,600;0,800;0,900;1,600;1,900&family=Space+Mono:wght@400;700&family=Noto+Kufi+Arabic:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F6F2E8; --ink:#14110E; --cream:#ECE5D4;
+    --amber:#117A52; --gold:#F4B53A; --flag:#E8412E; --plum:#8A245C; --kick:#C8682A;
+    --espresso:#0C3D2B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{ size:8.5in 11in; margin:0; }
+  html,body{background:#2a2a2a}
+  body{font-family:"Archivo",sans-serif;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;gap:26px;padding:28px}
+
+  .page{width:8.5in;height:11in;position:relative;overflow:hidden;background:var(--espresso);color:var(--ink);padding:0.4in 0.62in 0.52in;display:flex;flex-direction:column;justify-content:center;z-index:2}
+  .page *{position:relative}
+  /* faint jali in the margin, behind the paper (edge pattern like food menu) */
+  .page::after{content:"";position:absolute;inset:0;z-index:-1;background:url(assets/patterns/jali-cream.png) center/1.15in;opacity:.08;pointer-events:none}
+  /* cream paper panel with gold keyline (matches food menu) */
+  .page::before{content:"";position:absolute;inset:0.33in;background:var(--paper);box-shadow:0 0 0 2.5px var(--gold);z-index:0}
+  .tex{position:absolute;inset:0.33in;z-index:0;background:url(assets/tex/stucco.jpg) center/cover;mix-blend-mode:multiply;opacity:.12;pointer-events:none}
+  .pat{position:absolute;inset:0.33in;z-index:0;background:url(assets/patterns/jali-cream.png) center/0.95in;opacity:.05;pointer-events:none}
+  .grain{position:absolute;inset:0;z-index:6;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px;opacity:.07;mix-blend-mode:multiply}
+
+  .mast{display:flex;flex-direction:column;align-items:center;text-align:center;z-index:2;padding-top:4px}
+  .mast .wm{width:4.05in;max-width:84%;height:auto}
+  .mast .kick{font-family:"Space Mono",monospace;font-size:8pt;letter-spacing:.34em;text-transform:uppercase;color:var(--kick);margin-top:11px}
+
+  .feature{z-index:2;margin:18px 0 32px;border:1.5px solid var(--amber);
+    display:flex;flex-direction:column;justify-content:center;text-align:center;padding:11px 24px 9px}
+  .feature .ft{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:78%;text-transform:uppercase;font-size:15pt;line-height:.92;color:var(--amber);display:flex;align-items:center;justify-content:center;gap:14px}
+  .feature .ft .ln{width:0.55in;height:1px;background:var(--amber);opacity:.6}
+  .feature .fb{font-family:"Space Mono",monospace;font-size:7.4pt;line-height:1.55;color:var(--ink);opacity:.72;max-width:5in;margin:7px auto 0}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;column-gap:0.52in;flex:0 0 auto;z-index:2}
+  .col{display:flex;flex-direction:column}
+  .mgroup{margin-bottom:11px}
+  .mgroup + .mgroup{margin-top:9px}
+  .mgroup-h{border-bottom:1px solid rgba(17,122,82,.4);padding-bottom:4px;margin-bottom:10px;display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+  .gt{font-family:"Archivo",sans-serif;font-weight:900;font-stretch:82%;text-transform:uppercase;font-size:11.5pt;line-height:.92;color:var(--amber);letter-spacing:.01em}
+  .gsub{font-family:"Space Mono",monospace;font-size:6pt;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+
+  .it{margin-bottom:5.5px;break-inside:avoid}
+  .it .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .it .nm{font-family:"Archivo",sans-serif;font-weight:800;font-stretch:90%;text-transform:uppercase;font-size:8.4pt;letter-spacing:.012em;line-height:1.1;color:var(--ink)}
+  .it .pr{font-family:"Anton",sans-serif;font-size:8.4pt;line-height:1.1;color:var(--ink);white-space:nowrap;letter-spacing:.02em;position:relative;top:1.4px}
+  .it .ds{font-family:"Space Mono",monospace;font-size:6.4pt;line-height:1.38;color:var(--ink);opacity:.6;margin-top:2px}
+
+  .footrow{z-index:2;border-top:1px solid rgba(17,122,82,.4);margin-top:7px;padding-top:17px;padding-bottom:14px}
+  .legal{font-family:"Space Mono",monospace;font-size:6pt;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);opacity:.78;text-align:center;line-height:1.6;white-space:nowrap}
+  .legal .gold{color:var(--amber)}
+
+  .printbar{position:fixed;top:14px;right:14px;z-index:99}
+  .printbar button{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--gold);color:#fff;border:0;padding:11px 18px;cursor:pointer;border-radius:3px}
+  @media print{ body{background:#fff;padding:0;gap:0} .printbar{display:none} .page{box-shadow:none} }
+</style>
+</head>
+<body>
+<div class="printbar"><button onclick="window.print()">Print / Save PDF</button></div>
+
+<section class="page" id="page">
+  <div class="tex"></div><div class="pat"></div><div class="grain"></div>
+
+  <div class="mast">
+    <img class="wm" src="assets/wm__ink-cropped.png" alt="Ma'am Saab" />
+    <div class="kick">Modern Pakistani · Southern Charm</div>
+  </div>
+
+  <div class="feature">
+    <div class="ft"><span class="ln"></span><span>The Limited Pour</span><span class="ln"></span></div>
+    <div class="fb">Ask your server for tonight's limited-edition cocktails, beer &amp; wine.</div>
+  </div>
+
+  <div class="cols" id="cols"></div>
+
+  <div class="footrow">
+    <div class="legal"><span class="gold">★</span> Must be 21+ for alcohol &amp; hemp-derived drinks · 22% gratuity added to parties of five or more · Please drink responsibly</div>
+  </div>
+</section>
+
+<script>
+var DRINKS = [
+  { section:"Signature Cocktails", items:[
+    { name:"Kashmiri 76", desc:"Vodka, dry curaçao, citrus, bubbles, pom", price:"16" },
+    { name:"Shalimar", desc:"Gin, rose vermouth, grand marnier, lemon, ginger", price:"16" },
+    { name:"Rang-e-Bahar", desc:"Tequila, mezcal, citrus, pom", price:"15" },
+    { name:"Karachi Wala", desc:"Vodka, chai, spices, amaretto", price:"16" },
+    { name:"Divine Intervention", desc:"Chai infused bourbon, west indies orange bitters", price:"15" },
+    { name:"Party in Lahore", desc:"Tropical gin, grapefruit, peach, citrus", price:"15" },
+    { name:"The Last Temptation", desc:"Patrón XO, cream, chocolate, pistachio", price:"16" },
+    { name:"Khatta Meetha Part II", desc:"Grand marnier, aperol, peach, pineapple, pom", price:"16" },
+  ]},
+  { section:"Mocktails", items:[
+    { name:"Electric Rickshaw", desc:"Guava, pomegranate, citrus", price:"12" },
+    { name:"Truckstop Cooler", desc:"Peach, pomegranate, citrus, tonic", price:"12" },
+    { name:"Ish Mojito", desc:"Lime, moroccan mint, < 0.5% abv", price:"9" },
+  ]},
+  { section:"Craft Beer", items:[
+    { name:"Flying Horse Royal Lager 22oz", desc:"United Breweries · 4.7% abv · India", price:"12" },
+    { name:"Something Cold Blonde Ale", desc:"Edmund's Oast · 5% abv · Charleston SC", price:"9" },
+    { name:"Munkle Pilsner", desc:"Munkle · 5.1% abv · Charleston SC", price:"7" },
+    { name:"White Thai", desc:"Westbrook · 5% abv · Mt. Pleasant SC", price:"7" },
+    { name:"Seasonal Indian Beer", desc:"Ask about tonight's selection", price:"9" },
+    { name:"Seasonal IPA", desc:"Ask about tonight's selection", price:"9" },
+    { name:"Seasonal Cider", desc:"Ask about tonight's selection", price:"9" },
+  ]},
+  { section:"Wine", sub:"Glass · Bottle", items:[
+    { name:"Chardonnay", price:"12 · 42" },
+    { name:"Rosé", price:"13 · 45" },
+    { name:"Sauvignon Blanc", price:"12 · 42" },
+    { name:"Vinho Verde", price:"12 · 42" },
+    { name:"Bubbles", price:"12 · 42" },
+    { name:"Pinot Noir", price:"12 · 42" },
+    { name:"Cabernet Sauvignon", price:"12 · 42" },
+    { name:"Tempranillo", price:"12 · 42" },
+  ]},
+  { section:"Hemp-Derived THC", items:[
+    { name:"Raspberry Lime", desc:"Crescent 9 · 10mg", price:"12" },
+    { name:"Sour Watermelon", desc:"Crescent 9 · 10mg", price:"12" },
+    { name:"Ginger Lemonade", desc:"Crescent 9 · 10mg", price:"12" },
+    { name:"Orange Creamsicle", desc:"Cloud Cola · 10mg", price:"12" },
+    { name:"Classic Cola", desc:"Cloud Cola · 10mg", price:"12" },
+  ]},
+  { section:"From Pakistan", items:[
+    { name:"Mango Lassi", desc:"Creamy mango kissed by cardamom", price:"8" },
+    { name:"Masala Lemonade", desc:"Delicately spiced street-style lemonade", price:"8" },
+    { name:"Pakola Cream Soda", desc:"Fizzy rosewater cream soda", price:"6" },
+    { name:"Pakola Lychee Cream Soda", desc:"Fizzy lychee cream soda", price:"6" },
+  ]},
+  { section:"Non-Alcoholic", items:[
+    { name:"Ceebo Classic NA Beer", price:"7" },
+    { name:"Ginger Beer", price:"6" },
+    { name:"Coke · Diet Coke · Sprite", price:"4" },
+    { name:"Saratoga Spring Water", desc:"Still · Sparkling", price:"7" },
+  ]},
+];
+
+function itemHTML(it){
+  var h = '<div class="it"><div class="top"><span class="nm">'+it.name+'</span>'+(it.price?'<span class="pr">'+it.price+'</span>':'')+'</div>';
+  if(it.desc) h += '<div class="ds">'+it.desc+'</div>';
+  return h + '</div>';
+}
+var GROUPS = {};
+DRINKS.forEach(function(g){
+  var h = '<div class="mgroup"><div class="mgroup-h"><span class="gt">'+g.section+'</span>'+(g.sub?'<span class="gsub">'+g.sub+'</span>':'')+'</div>';
+  g.items.forEach(function(it){ h += itemHTML(it); });
+  GROUPS[g.section] = h + '</div>';
+});
+var COLUMNS = [
+  ["Signature Cocktails","Mocktails","Craft Beer"],
+  ["Wine","Hemp-Derived THC","From Pakistan","Non-Alcoholic"]
+];
+document.getElementById("cols").innerHTML = COLUMNS.map(function(col){
+  return '<div class="col">' + col.map(function(s){ return GROUPS[s]||''; }).join('') + '</div>';
+}).join('');
+</script>
+</body>
+</html>

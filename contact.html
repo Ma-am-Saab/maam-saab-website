@@ -10,13 +10,25 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Contact Ma'am Saab, Charleston, SC" />
 <meta property="og:description" content="Reservations, events, press, or just to say hello. Get in touch." />
-<meta property="og:image" content="assets/photos/storefront-window.jpg" />
+<meta property="og:image" content="https://maamsaabchs.com/assets/photos/storefront-window.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,600;0,800;0,900;1,600;1,900&family=Space+Mono:wght@400;700&family=Noto+Kufi+Arabic:wght@500;700;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="riso.css" />
 <link rel="stylesheet" href="patterns.css" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="site.css" />
+<style id="bodyFontVars">
+  :root{ --bodyfont:"Lora",serif; --bodyweight:400; --bodysize:16.5px; --bodylh:1.65; --bodytrack:0em; }
+  /* every paragraph / body-copy role on the site */
+  .lede,.mag > p:not(.eyebrow),.faq .ans,.rb-step p,.tl .td,.dc,.person > div > p:not(.eyebrow),.person > p:not(.eyebrow),p.body,.qa p{
+    font-family:var(--bodyfont);
+    font-weight:var(--bodyweight);
+    font-size:var(--bodysize);
+    letter-spacing:var(--bodytrack);
+    line-height:var(--bodylh);
+  }
+</style>
 <style>
   .resv-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px}
   .resv-sep{color:var(--gold);opacity:.45;font-family:"Space Mono",monospace;font-size:15px}
@@ -186,13 +198,13 @@
     </div>
     <div class="mono" style="font-size:13px;line-height:2">
       <span style="color:var(--gold);letter-spacing:.12em">VISIT</span><br/>
-      251 Meeting St<br/>Charleston, SC 29401<br/>843.259.2660<br/>
+      251 Meeting St<br/>Charleston, SC 29401<br/><a href="tel:+18432592660">843.259.2660</a><br/>
       <a href="https://instagram.com/maamsaabchs">@maamsaabchs</a>
     </div>
   </div>
   <div class="wrapw" style="position:relative;z-index:3;margin-top:44px;padding-top:22px;border-top:1px solid rgba(236,229,212,.14);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
     <span class="mono" style="font-size:11px;opacity:.6">© 2020–2026 Ma'am Saab · Charleston, SC</span>
-    <span class="mono" style="font-size:11px;opacity:.6">Built with love &amp; chili</span>
+    <span class="mono" style="font-size:11px;opacity:.6">Built with love &amp; Kashmiri chili</span>
   </div>
 </footer>
 
