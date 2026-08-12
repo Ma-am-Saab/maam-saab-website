@@ -1,18 +1,23 @@
-# STAGING — block search crawlers until launch.
-# At go-live, replace this file's contents with robots-production.txt
+# PRODUCTION robots.txt — paste these contents into robots.txt at go-live.
+User-agent: *
+Allow: /
 
-# Allow Claude to read the staging site (more specific groups win over *)
+# AI / generative-engine crawlers — explicitly welcomed
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
 User-agent: ClaudeBot
 Allow: /
-
-User-agent: Claude-User
+User-agent: Claude-Web
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
 Allow: /
 
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: *
-Disallow: /
+Sitemap: https://maamsaabchs.com/sitemap.xml
