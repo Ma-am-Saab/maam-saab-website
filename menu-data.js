@@ -122,7 +122,7 @@ window.MS_MENU = {
       { name: "Mango Lassi", desc: "Creamy Kesar mango, cardamom, yogurt, rosewater, maximum nirvana", price: "8", tags: [], photo: "cocktail-coupe.jpg" },
       { name: "Masala Lemonade", desc: "Sharp lemon, cane sugar, mint, chaat masala, everything all at once", price: "8", tags: [] },
       { name: "Pakola Cream Soda", desc: "Fizzy rosewater cream soda", price: "6", tags: [] },
-      { name: "Pakola Lychee Cream Soda", desc: "Fizzy lychee cream soda", price: "6", tags: [] },
+      { name: "Pakola Lychee", desc: "Fizzy lychee cream soda", price: "6", tags: [] },
     ]},
     { section: "Non-Alcoholic", items: [
       { name: "Ceebo Classic NA Beer", desc: "", price: "7", tags: [] },
