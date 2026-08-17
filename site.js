@@ -32,13 +32,13 @@
   // ---- mobile menu ----
   const tog = document.getElementById('navToggle');
   const mm = document.getElementById('mobileMenu');
-  function closeMenu(){ var _n=document.getElementById('nav'); if(_n) _n.classList.remove('navclear'); mm.classList.remove('open'); tog.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+  function closeMenu(){ var _n=document.getElementById('nav'); if(_n) _n.classList.remove('menuopen'); mm.classList.remove('open'); tog.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
   tog && tog.addEventListener('click', () => {
     const open = mm.classList.toggle('open');
     tog.classList.toggle('open', open);
     tog.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
-    if (nav) nav.classList.toggle('navclear', open);
+    if (nav) nav.classList.toggle('menuopen', open);
   });
   mm && mm.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
