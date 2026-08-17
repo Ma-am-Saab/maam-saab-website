@@ -628,7 +628,7 @@
 #foodMenu .mitem >.note { font-size: 13px !important }
 
   /* ── dietary legend ─────────────────────────────────────── */
-  .legend{position:sticky;top:0;z-index:6;background:#2a0a04;padding:12px 0 11px;
+  .legend{position:sticky;top:0;z-index:6;background:#2a0a04;padding:12px 0 11px;margin-left:-14px;margin-right:-14px;
     border-bottom:1px solid var(--hdline);margin-bottom:22px}
   .legend .chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .legend .ch{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(244,181,58,.5);
@@ -653,4 +653,9 @@
     .legend .hint{flex-basis:100%;text-align:left;margin:3px 0 0;font-size:9px}
     .mitem.hit::before{left:-9px}
   }
+
+  /* sticky legend needs a non-clipping ancestor */
+  #food.msec,#drinks.msec{overflow:visible}
+  .legend{padding-left:14px;padding-right:14px;border-radius:2px}
+  @media(max-width:760px){ .legend{padding-left:10px;padding-right:10px} }
 </style>
