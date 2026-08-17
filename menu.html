@@ -560,7 +560,7 @@
       ${note}<ul class="mitems">${g.items.map(itemHTML).join('')}</ul></div>`;
   }
 
-  if(M.tasting){
+  if(M.tasting && M.tasting.title){
     const t=M.tasting;
     document.getElementById('tastingCard').innerHTML = `
       <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px">
@@ -574,17 +574,17 @@
       </div>`;
   }
 
-  document.getElementById('foodMenu').innerHTML = (M.food||[]).map((g,i)=>groupHTML(g,i)).join('');
+  if (M.food && M.food.length) document.getElementById('foodMenu').innerHTML = M.food.map((g,i)=>groupHTML(g,i)).join('');
   if(M.foodNote) document.getElementById('foodNote').textContent = M.foodNote;
 
   if(M.drinksCallout){
-    document.getElementById('drinksCallout').innerHTML = `
+    if(M.drinksCallout) document.getElementById('drinksCallout').innerHTML = `
       <div class="callout-strip">
         <p style="font-family:'Archivo',sans-serif;font-weight:900;font-stretch:85%;text-transform:uppercase;font-size:clamp(16px,2vw,22px);color:var(--gold)">${esc(M.drinksCallout.title)}</p>
         <p class="mono" style="font-size:12px;opacity:.75;margin-top:6px;letter-spacing:.04em">${esc(M.drinksCallout.blurb)}</p>
       </div>`;
   }
-  document.getElementById('drinkMenu').innerHTML = (M.drinks||[]).map((g,i)=>groupHTML(g,i)).join('');
+  if (M.drinks && M.drinks.length) document.getElementById('drinkMenu').innerHTML = M.drinks.map((g,i)=>groupHTML(g,i)).join('');
   if(M.drinksNote) document.getElementById('drinksNote').textContent = M.drinksNote;
 
   const allJump=[...document.querySelectorAll('[data-jump]')];
