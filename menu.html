@@ -535,6 +535,30 @@
 </div>
 
 
+<script>
+/* nav + mobile menu + jump links — no content rendering */
+(function(){
+  var tog=document.getElementById('navToggle'), mm=document.getElementById('mobileMenu');
+  function close(){ if(mm) mm.classList.remove('open'); if(tog) tog.classList.remove('open');
+    document.body.style.overflow=''; }
+  if(tog&&mm){
+    tog.addEventListener('click',function(){
+      var open=!mm.classList.contains('open');
+      mm.classList.toggle('open',open); tog.classList.toggle('open',open);
+      document.body.style.overflow=open?'hidden':'';
+    });
+    mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close); });
+  }
+  var nav=document.getElementById('nav');
+  if(nav) addEventListener('scroll',function(){ nav.classList.toggle('scrolled',scrollY>40); },{passive:true});
+  document.querySelectorAll('.mtoggle a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); window.scrollTo({top:t.offsetTop-70,behavior:'smooth'}); }
+    });
+  });
+})();
+</script>
 </body>
 </html>
 
