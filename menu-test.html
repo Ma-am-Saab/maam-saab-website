@@ -658,4 +658,9 @@
   #food.msec,#drinks.msec{overflow:visible}
   .legend{padding-left:14px;padding-right:14px;border-radius:2px}
   @media(max-width:760px){ .legend{padding-left:10px;padding-right:10px} }
+
+  /* sticky requires no clipping ancestor — clip does not create a scroll box */
+  html,body{overflow-x:clip!important}
+  #food.msec,#drinks.msec{overflow:visible!important}
+  #food.msec>.secpat,#food.msec>.frame,#drinks.msec>.secpat,#drinks.msec>.frame{overflow:hidden}
 </style>
