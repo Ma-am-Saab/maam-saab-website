@@ -549,7 +549,13 @@
       var open=!mm.classList.contains('open');
       mm.classList.toggle('open',open); tog.classList.toggle('open',open);
       document.body.style.overflow=open?'hidden':'';
-      if(nav && open) nav.classList.add('scrolled');
+      if(nav){
+        if(open) nav.classList.add('scrolled');
+        else if(scrollY <= 40){
+          nav.classList.remove('scrolled');
+          setTimeout(function(){ if(scrollY <= 40) nav.classList.remove('scrolled'); },60);
+        }
+      }
     });
     mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close); });
   }

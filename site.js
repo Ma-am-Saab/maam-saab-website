@@ -40,7 +40,13 @@
     tog.classList.toggle('open', open);
     tog.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
-    if (nav && open) nav.classList.add('scrolled');
+    if (nav) {
+      if (open) nav.classList.add('scrolled');
+      else if (window.scrollY <= 40) {
+        nav.classList.remove('scrolled');
+        setTimeout(function(){ if (window.scrollY <= 40) nav.classList.remove('scrolled'); }, 60);
+      }
+    }
   });
   mm && mm.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
