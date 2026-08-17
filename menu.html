@@ -550,7 +550,14 @@
     mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close); });
   }
   var nav=document.getElementById('nav');
-  if(nav) addEventListener('scroll',function(){ nav.classList.toggle('scrolled',scrollY>40); },{passive:true});
+  var mcta=document.querySelector('.mcta');
+  function onScroll(){
+    if(nav) nav.classList.toggle('scrolled', scrollY>40);
+    if(mcta) mcta.classList.toggle('show', scrollY > innerHeight*0.7);
+  }
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('load',onScroll);
+  onScroll();
   document.querySelectorAll('.mtoggle a').forEach(function(a){
     a.addEventListener('click',function(e){
       var t=document.querySelector(a.getAttribute('href'));
