@@ -132,6 +132,18 @@
     <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="dietbar" id="legend" aria-label="Dietary legend">
+  <div class="wrapw dietbar-in">
+    <span class="ch" data-t="gf"><b>GF</b> gluten-free</span>
+    <span class="ch" data-t="gf available"><b>GF*</b> gf available</span>
+    <span class="ch" data-t="df"><b>DF</b> dairy-free</span>
+    <span class="ch" data-t="vegetarian"><b>VG</b> vegetarian</span>
+    <span class="ch" data-t="vgn"><b>VGN</b> vegan</span>
+    <span class="ch" data-t="star"><b class="sg">&#9733;</b> house signature</span>
+    <span class="hint">tap to highlight</span>
+  </div>
+</div>
+
 <div class="mobile-menu" id="mobileMenu">
   <span class="mm-eyebrow">Charleston · South Carolina</span>
   <a href="our-story.html">Our Story</a>
@@ -190,18 +202,7 @@
     <div class="secpat pat-halftone" style="opacity:.05;color:var(--gold);background-size:18px 18px;z-index:2"></div>
     <div class="wrapw" style="position:relative;z-index:2">
       <div class="msec-h"><p class="eyebrow" style="color:var(--gold);margin-bottom:14px">From the kitchen</p><h2>The Food</h2></div>
-      <div class="legend" id="legend">
-    <div class="chips">
-      <span class="ch" data-t="gf"><b>GF</b> gluten-free</span>
-      <span class="ch" data-t="gf available"><b>GF*</b> gf available</span>
-      <span class="ch" data-t="df"><b>DF</b> dairy-free</span>
-      <span class="ch" data-t="vegetarian"><b>VG</b> vegetarian</span>
-      <span class="ch" data-t="vgn"><b>VGN</b> vegan</span>
-      <span class="ch" data-t="star"><b class="sg">&#9733;</b> house signature</span>
-      <span class="hint">tap to highlight</span>
-    </div>
-  </div>
-  <div id="foodMenu"><div class="mgroup">
+      <div id="foodMenu"><div class="mgroup">
     <div class="mgroup-h"><h3 class="gt">Chaat Counter</h3><p class="gs">Meant for sharing. Good luck.</p></div>
     <ul class="mitems"><li class="mitem">
       <div class="top"><span class="nm">Fritos Chaat<span class="star">★</span></span><span class="lead"></span><span class="pr">12</span></div>
@@ -589,19 +590,38 @@
 })();
 </script>
 <script>
-/* legend highlight — reads tags already present in the static HTML.
-   Progressive enhancement only: no content is created, moved or removed. */
+/* Dietary legend — fixed bar, visible only while the food section is in view.
+   Reads tags already present in the static HTML; creates no content. */
 (function(){
-  var lg = document.getElementById('legend');
-  if(!lg) return;
-  var items = [].slice.call(document.querySelectorAll('#foodMenu .mitem, #drinkMenu .mitem'));
+  var bar = document.getElementById('legend');
+  var food = document.getElementById('food');
+  var nav = document.getElementById('nav');
+  if(!bar || !food) return;
+
+  /* sit directly beneath whatever height the nav currently is */
+  function syncNav(){
+    if(nav) bar.style.setProperty('--navh', nav.getBoundingClientRect().height + 'px');
+  }
+  syncNav();
+  addEventListener('resize', syncNav, {passive:true});
+  addEventListener('scroll', syncNav, {passive:true});
+
+  /* tag index */
+  var items = [].slice.call(food.querySelectorAll('.mitem'));
   items.forEach(function(li){
     var t = [].map.call(li.querySelectorAll('.tag'), function(s){ return s.textContent.trim().toLowerCase(); });
     if(li.querySelector('.star')) t.push('star');
     li.dataset.diet = t.join('|');
   });
+
   var active = [];
-  lg.addEventListener('click', function(e){
+  function clearAll(){
+    active = [];
+    bar.querySelectorAll('.ch.on').forEach(function(c){ c.classList.remove('on'); });
+    items.forEach(function(li){ li.classList.remove('dim','hit'); });
+  }
+
+  bar.addEventListener('click', function(e){
     var ch = e.target.closest('.ch');
     if(!ch) return;
     var t = ch.dataset.t, i = active.indexOf(t);
@@ -614,6 +634,14 @@
       li.classList.toggle('hit', !!active.length && match);
     });
   });
+
+  /* in view = show; out of view = hide and reset */
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ syncNav(); bar.classList.add('show'); }
+      else { bar.classList.remove('show'); clearAll(); }
+    });
+  }, {rootMargin:'-90px 0px -55% 0px', threshold:0}).observe(food);
 })();
 </script>
 </body>
@@ -627,40 +655,36 @@
 #foodMenu >div:nth-child(1) .gs { width: 800px !important }
 #foodMenu .mitem >.note { font-size: 13px !important }
 
-  /* ── dietary legend ─────────────────────────────────────── */
-  .legend{position:sticky;top:0;z-index:6;background:#2a0a04;padding:12px 0 11px;margin-left:-14px;margin-right:-14px;
-    border-bottom:1px solid var(--hdline);margin-bottom:22px}
-  .legend .chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-  .legend .ch{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(244,181,58,.5);
+
+
+
+  /* ── dietary legend · fixed bar beneath the nav ───────────── */
+  .dietbar{position:fixed;left:0;right:0;top:0;z-index:44;
+    background:rgba(20,10,4,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--hdline);
+    transform:translateY(-100%);opacity:0;pointer-events:none;
+    transition:transform .42s cubic-bezier(.6,0,.2,1),opacity .3s}
+  .dietbar.show{transform:translateY(var(--navh,58px));opacity:1;pointer-events:auto}
+  .dietbar-in{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 0 9px}
+  .dietbar .ch{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(244,181,58,.5);
     padding:6px 11px;border-radius:3px;font-family:"Space Mono",monospace;font-size:10px;
-    letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:rgba(244,181,58,.05);
-    cursor:pointer;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
-  .legend .ch b{color:var(--gold);font-weight:700;font-size:11px}
-  .legend .ch b.sg{color:var(--chili,#D8432E)}
-  .legend .ch:hover{border-color:var(--gold);background:rgba(244,181,58,.14)}
-  .legend .ch.on{background:var(--gold);border-color:var(--gold);color:var(--ink)}
-  .legend .ch.on b{color:var(--ink)}
-  .legend .hint{font-family:"Space Mono",monospace;font-size:9.5px;letter-spacing:.14em;
-    text-transform:uppercase;opacity:.42;margin-left:2px}
+    letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:rgba(244,181,58,.06);
+    cursor:pointer;transition:background .2s,border-color .2s,color .2s;white-space:nowrap;user-select:none}
+  .dietbar .ch b{color:var(--gold);font-weight:700;font-size:11px}
+  .dietbar .ch b.sg{color:#D8432E}
+  .dietbar .ch:hover{border-color:var(--gold);background:rgba(244,181,58,.15)}
+  .dietbar .ch.on{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .dietbar .ch.on b,.dietbar .ch.on b.sg{color:var(--ink)}
+  .dietbar .hint{font-family:"Space Mono",monospace;font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;opacity:.42}
   .mitem{transition:opacity .25s}
-  .mitem.dim{opacity:.28}
+  .mitem.dim{opacity:.26}
   .mitem.hit{position:relative}
   .mitem.hit::before{content:"";position:absolute;left:-13px;top:1px;bottom:1px;width:2px;background:var(--gold)}
   @media(max-width:760px){
-    .legend{top:56px;padding:10px 0 9px}
-    .legend .chips{gap:6px}
-    .legend .ch{padding:6px 9px;font-size:9.5px;gap:5px}
-    .legend .hint{flex-basis:100%;text-align:left;margin:3px 0 0;font-size:9px}
+    .dietbar-in{gap:6px;padding:9px 0 8px}
+    .dietbar .ch{padding:6px 9px;font-size:9.5px;gap:5px}
+    .dietbar .hint{flex-basis:100%;text-align:left;margin-top:2px;font-size:9px}
     .mitem.hit::before{left:-9px}
   }
-
-  /* sticky legend needs a non-clipping ancestor */
-  #food.msec,#drinks.msec{overflow:visible}
-  .legend{padding-left:14px;padding-right:14px;border-radius:2px}
-  @media(max-width:760px){ .legend{padding-left:10px;padding-right:10px} }
-
-  /* sticky requires no clipping ancestor — clip does not create a scroll box */
-  html,body{overflow-x:clip!important}
-  #food.msec,#drinks.msec{overflow:visible!important}
-  #food.msec>.secpat,#food.msec>.frame,#drinks.msec>.secpat,#drinks.msec>.frame{overflow:hidden}
 </style>
