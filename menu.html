@@ -541,13 +541,14 @@
   var tog=document.getElementById('navToggle'), mm=document.getElementById('mobileMenu');
   function close(){ if(mm) mm.classList.remove('open'); if(tog) tog.classList.remove('open');
     document.body.style.overflow='';
-    var n=document.getElementById('nav'); if(n) n.classList.remove('menuopen'); }
+    var n=document.getElementById('nav');
+    if(n && scrollY <= 40) n.classList.remove('scrolled'); }
   if(tog&&mm){
     tog.addEventListener('click',function(){
       var open=!mm.classList.contains('open');
       mm.classList.toggle('open',open); tog.classList.toggle('open',open);
       document.body.style.overflow=open?'hidden':'';
-      if(nav) nav.classList.toggle('menuopen',open);
+      if(nav && open) nav.classList.add('scrolled');
     });
     mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',close); });
   }

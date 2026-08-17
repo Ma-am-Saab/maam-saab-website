@@ -280,4 +280,3 @@ section{position:relative}
 .form-thanks p{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.04em;line-height:1.7;color:var(--cream);opacity:.82;max-width:46ch;margin:0 auto;animation:ftin 1s .32s cubic-bezier(.2,.8,.2,1) both}
 
 
-.nav.menuopen{background:var(--pine);box-shadow:0 1px 0 rgba(236,229,212,.08)}
