@@ -542,7 +542,8 @@
   function close(){ if(mm) mm.classList.remove('open'); if(tog) tog.classList.remove('open');
     document.body.style.overflow='';
     var n=document.getElementById('nav');
-    if(n && scrollY <= 40) n.classList.remove('scrolled'); }
+    if(n){ if(scrollY <= 40) n.classList.remove('scrolled');
+      setTimeout(function(){ if(scrollY <= 40) n.classList.remove('scrolled'); },60); } }
   if(tog&&mm){
     tog.addEventListener('click',function(){
       var open=!mm.classList.contains('open');

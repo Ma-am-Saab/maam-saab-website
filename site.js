@@ -33,7 +33,8 @@
   const tog = document.getElementById('navToggle');
   const mm = document.getElementById('mobileMenu');
   function closeMenu(){ var _n=document.getElementById('nav');
-    if(_n && window.scrollY <= 40) _n.classList.remove('scrolled'); mm.classList.remove('open'); tog.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+    if(_n){ if(window.scrollY <= 40) _n.classList.remove('scrolled');
+      setTimeout(function(){ if(window.scrollY <= 40) _n.classList.remove('scrolled'); },60); } mm.classList.remove('open'); tog.classList.remove('open'); tog.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
   tog && tog.addEventListener('click', () => {
     const open = mm.classList.toggle('open');
     tog.classList.toggle('open', open);
