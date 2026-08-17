@@ -591,6 +591,9 @@
     if(nav) bar.style.setProperty('--navh', nav.getBoundingClientRect().height + 'px');
   }
   syncNav();
+  requestAnimationFrame(syncNav);
+  addEventListener('load', syncNav);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(syncNav);
   addEventListener('resize', syncNav, {passive:true});
   addEventListener('scroll', syncNav, {passive:true});
 
@@ -644,10 +647,6 @@
   }, {rootMargin:'-90px 0px -55% 0px', threshold:0}).observe(food);
 })();
 </script>
-<div id="buildstamp" style="position:fixed;left:10px;bottom:10px;z-index:99999;
-  background:#F4B53A;color:#141110;font:10px/1 'Space Mono',monospace;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:2px">
-  build 1786975577618 &middot; 5 filters</div>
 </body>
 </html>
 
@@ -691,4 +690,7 @@
     .dietbar .hint{flex-basis:100%;text-align:left;margin-top:2px;font-size:9px}
     .mitem.hit::before{left:-9px}
   }
+
+  .dietbar-in{padding-left:20px;padding-right:20px}
+  @media(max-width:760px){ .dietbar-in{padding-left:16px;padding-right:16px} }
 </style>
