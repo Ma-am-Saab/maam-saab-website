@@ -52,13 +52,13 @@ window.MS_MENU = {
       { name: "Biryani Rice", star: true, desc: "Basmati rice with biryani masala", price: "9", tags: ["gf", "vegetarian", "vegan"] },
     ]},
     { section: "Signature Sides", items: [
-      { name: "Butter Sauce", star: true, desc: "For your naan, rice, and shameless dipping", price: "9", tags: ["gf", ] },
+      { name: "Butter Sauce", star: true, desc: "For your naan, rice, and shameless dipping", price: "9", tags: ["vegetarian", "gf"] },
       { name: "Methi Aloo", star: true, desc: "Creamy potatoes, fenugreek, warm spice", price: "12", tags: ["gf", "vegetarian", "vegan"] },
       { name: "Palak", desc: "Spinach slow-cooked with roasted garlic and cumin", price: "12", tags: ["gf", "vegetarian"] },
       { name: "Lahori Cholay", desc: "Slow-simmered Lahori spiced chickpeas", price: "12", tags: ["gf", "vegetarian", "vegan"] },
     ]},
     { section: "Dips & Chutneys", note: "Each 6 · Three 15 · Sampler 24", items: [
-      { name: "Mint Raita", desc: "Cool yogurt, mint, mild spice", tags: ["gf"] },
+      { name: "Mint Raita", desc: "Cool yogurt, mint, mild spice", tags: ["vegetarian", "gf"] },
       { name: "Onion Kachoomar", desc: "Onion, tomato, cucumber, chili", tags: ["vegetarian", "vegan", "gf"] },
       { name: "Mint & Cilantro", desc: "Bright, herby, fresh", tags: ["vegetarian", "vegan", "gf"] },
       { name: "Tamarind & Date", desc: "Sweet, tangy, deep", tags: ["vegetarian", "vegan", "gf"] },
